@@ -508,14 +508,16 @@ void() PutClientInServer =
 	
 	W_SetCurrentAmmo ();
 
+	makebubble();
+
 	self.attack_finished = time;
 	self.th_pain = player_pain;
 	self.th_die = PlayerDie;
-	
+
 	self.deadflag = DEAD_NO;
 // paustime is set by teleporters to keep the player from moving a while
 	self.pausetime = 0;
-	
+
 //	spot = SelectSpawnPoint ();
 
 //	self.origin = spot.origin + '0 0 1';
@@ -531,13 +533,13 @@ void() PutClientInServer =
 	modelindex_player = self.modelindex;
 
 	setsize (self, VEC_HULL_MIN, VEC_HULL_MAX);
-	
+
 	self.view_ofs = '0 0 22';
-	
+
 	self.velocity = '0 0 0';	// 1998-07-21 Player moves after respawn fix by Xian
 
 	player_stand1 ();
-	
+
 	if (deathmatch || coop)
 	{
 		makevectors(self.angles);
@@ -920,6 +922,12 @@ void() PlayerPreThink =
 	if (self.view_ofs == '0 0 0')
 		return;		// intermission or finale
 
+	if(self.bubble.classname != "socialdistance"){
+		makebubble();
+	}
+
+	self.bubble.origin = self.origin;
+
 	makevectors (self.v_angle);		// is this still used
 
 	CheckRules ();
@@ -953,6 +961,7 @@ void() PlayerPreThink =
 		self.weapon = W_BestWeapon ();
 		W_SetCurrentAmmo ();
 	}
+
 };
 	
 /*
@@ -1336,6 +1345,11 @@ void(entity targ, entity attacker) ClientObituary =
 		{
 			targ.frags = targ.frags - 1;
 			bprint (targ.netname);
+
+			if(attacker.classname == "socialdistance"){
+				bprint(" failed to practice social distancing");
+				return;
+			}
 
 			// killed by a montser?
 			if (attacker.flags & FL_MONSTER)

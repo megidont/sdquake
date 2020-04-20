@@ -132,6 +132,7 @@ void() walkmonster_start =
 
 void() flymonster_start_go =
 {
+
 	self.takedamage = DAMAGE_AIM;
 
 	self.ideal_yaw = self.angles * '0 1 0';

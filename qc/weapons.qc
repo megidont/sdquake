@@ -1245,7 +1245,7 @@ void() ImpulseCommands =
 
 	if (self.impulse == 255)
 		QuadCheat ();
-		
+
 	self.impulse = 0;
 };
 
