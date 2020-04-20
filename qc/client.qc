@@ -926,7 +926,7 @@ void() PlayerPreThink =
 		makebubble();
 	}
 
-	self.bubble.origin = self.origin;
+	updatebubble();
 
 	makevectors (self.v_angle);		// is this still used
 

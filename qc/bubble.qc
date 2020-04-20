@@ -10,14 +10,7 @@ void() bubble_touch = {
 
 	}
 
-	if(other.flags & FL_MONSTER){
-
-		local float skilllevel;
-		skilllevel = skill + 1;
-
-		T_Damage(self.owner, self, self, skilllevel*25);
-
-	}else if(other.classname == "player"){
+	if((other.flags & FL_MONSTER) || (other.classname == "player")){
 
 		local float skilllevel;
 		skilllevel = skill + 1;
@@ -42,7 +35,34 @@ void() makebubble = {
 	tbubble.owner = self;
 	tbubble.origin = self.origin;
 	tbubble.touch = bubble_touch;
-	setsize(tbubble, '0 0 0', '112 112 112');
+
+	local vector tempsize;
+	local vector negtempsize;
+
+	tempsize_x = self.size_x/2;
+	tempsize_y = self.size_y/2;
+	tempsize_z = self.size_z/2;
+	tempsize_x = tempsize_x + 56;
+	tempsize_y = tempsize_y + 56;
+	tempsize_z = tempsize_z + 56;
+
+	negtempsize_x = tempsize_x * -1;
+	negtempsize_y = tempsize_y * -1;
+	negtempsize_z = tempsize_z * -1;
+
+	setsize(tbubble, negtempsize, tempsize);
 	self.bubble = tbubble;
+
+}
+
+void() updatebubble = {
+
+	self.bubble.origin = self.origin;
+
+}
+
+void() removebubble = {
+
+	remove(self.bubble);
 
 }

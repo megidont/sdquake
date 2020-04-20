@@ -228,6 +228,7 @@ void() dog_dieb9		=[	$deathb9,	dog_dieb9	] {};
 
 void() dog_die =
 {
+	removebubble();
 // check for gib
 	if (self.health < -35)
 	{
@@ -349,6 +350,7 @@ void() monster_dog =
 	setmodel (self, "progs/dog.mdl");
 
 	setsize (self, '-32 -32 -24', '32 32 40');
+	makebubble();
 	self.health = 25;
 
 	self.th_stand = dog_stand1;

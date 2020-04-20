@@ -386,11 +386,13 @@ void() zombie_paine30	=[	$paine30,	zombie_run1		] {};
 
 void() zombie_die =
 {
+	removebubble();
 	sound (self, CHAN_VOICE, "zombie/z_gib.wav", 1, ATTN_NORM);
 	ThrowHead ("progs/h_zombie.mdl", self.health);
 	ThrowGib ("progs/gib1.mdl", self.health);
 	ThrowGib ("progs/gib2.mdl", self.health);
 	ThrowGib ("progs/gib3.mdl", self.health);
+	remove(self);							//jic
 };
 
 /*
@@ -496,6 +498,7 @@ void() monster_zombie =
 	setmodel (self, "progs/zombie.mdl");
 
 	setsize (self, '-16 -16 -24', '16 16 40');
+	makebubble();
 	self.health = 60;
 
 	self.th_stand = zombie_stand1;

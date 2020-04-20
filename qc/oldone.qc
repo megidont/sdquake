@@ -108,6 +108,7 @@ void() old_thrash20       =[      $shake20, old_thrash20      ] {finale_4();};
 
 void() finale_1 =
 {
+	removebubble();
 	local entity	pos, pl;
 	local entity	timer;
 	
@@ -272,6 +273,7 @@ void() monster_oldone =
 	
 	setmodel (self, "progs/oldone.mdl");
 	setsize (self, '-160 -128 -24', '160 128 256');
+	makebubble();
 
 	self.health = 40000;		// kill by telefrag
 	self.think = old_idle1;

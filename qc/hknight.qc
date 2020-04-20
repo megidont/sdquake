@@ -199,6 +199,7 @@ void()	hknight_dieb9	=[	$deathb9,	hknight_dieb9	] {};
 
 void() hknight_die =
 {
+	removebubble();
 // check for gib
 	if (self.health < -40)
 	{
@@ -426,6 +427,7 @@ void() monster_hell_knight =
 	setmodel (self, "progs/hknight.mdl");
 
 	setsize (self, '-16 -16 -24', '16 16 40');
+	makebubble();
 	self.health = 250;
 
 	self.th_stand = hknight_stand1;

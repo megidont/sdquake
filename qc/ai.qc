@@ -424,11 +424,13 @@ float() FindTarget =
 void(float dist) ai_forward =
 {
 	walkmove (self.angles_y, dist);
+	updatebubble();
 };
 
 void(float dist) ai_back =
 {
 	walkmove ( (self.angles_y+180), dist);
+	updatebubble();
 };
 
 
@@ -462,6 +464,7 @@ stagger back a bit
 void(float dist) ai_painforward =
 {
 	walkmove (self.ideal_yaw, dist);
+	updatebubble();
 };
 
 /*
@@ -487,6 +490,7 @@ void(float dist) ai_walk =
 		return;
 
 	movetogoal (dist);
+	updatebubble();
 };
 
 
@@ -664,6 +668,7 @@ void() ai_run_slide =
 	self.lefty = 1 - self.lefty;
 	
 	walkmove (self.ideal_yaw - ofs, movedist);
+	updatebubble();
 };
 
 
@@ -743,5 +748,6 @@ void(float dist) ai_run =
 		
 // head straight in
 	movetogoal (dist);		// done in C code...
+	updatebubble();
 };
 

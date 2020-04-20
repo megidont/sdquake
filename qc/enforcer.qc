@@ -287,6 +287,7 @@ void()	enf_fdie11	=[	$fdeath11,	enf_fdie11	] {};
 
 void() enf_die =
 {
+removebubble();
 // check for gib
 	if (self.health < -35)
 	{
@@ -338,6 +339,7 @@ void() monster_enforcer =
 	setmodel (self, "progs/enforcer.mdl");
 
 	setsize (self, '-16 -16 -24', '16 16 40');
+	makebubble();
 	self.health = 80;
 
 	self.th_stand = enf_stand1;

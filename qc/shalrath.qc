@@ -99,6 +99,7 @@ void() shalrath_pain =
 
 void() shalrath_die =
 {
+	removebubble();
 // check for gib
 	if (self.health < -90)
 	{
@@ -224,6 +225,7 @@ void() monster_shalrath =
 	
 	setmodel (self, "progs/shalrath.mdl");
 	setsize (self, VEC_HULL2_MIN, VEC_HULL2_MAX);
+	makebubble();
 	self.health = 400;
 
 	self.th_stand = shal_stand;

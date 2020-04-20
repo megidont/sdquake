@@ -165,6 +165,7 @@ void()	tbaby_jump6	=[	$jump6,tbaby_fly1	] {};
 //=============================================================================
 
 void()	tbaby_die1	=[	$exp,		tbaby_die2	] {
+removebubble();
 self.takedamage = DAMAGE_NO;
 };
 void()	tbaby_die2	=[	$exp,		tbaby_run1	] 
@@ -208,6 +209,7 @@ void() monster_tarbaby =
 	setmodel (self, "progs/tarbaby.mdl");
 
 	setsize (self, '-16 -16 -24', '16 16 40');
+	makebubble();
 	self.health = 80;
 
 	self.th_stand = tbaby_stand1;
