@@ -108,6 +108,7 @@ void() shalrath_die =
 		ThrowGib ("progs/gib1.mdl", self.health);
 		ThrowGib ("progs/gib2.mdl", self.health);
 		ThrowGib ("progs/gib3.mdl", self.health);
+		remove(self);
 		return;
 	}
 

@@ -393,6 +393,7 @@ void() ogre_die =
 		ThrowGib ("progs/gib3.mdl", self.health);
 		ThrowGib ("progs/gib3.mdl", self.health);
 		ThrowGib ("progs/gib3.mdl", self.health);
+		remove(self);
 		return;
 	}
 
