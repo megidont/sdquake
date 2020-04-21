@@ -288,8 +288,6 @@ void() worldspawn =
 
 	precache_model ("progs/v_light.mdl");
 
-	precache_model ("maps/rubble.bsp");
-
 //
 // Setup light animation tables. 'a' is total darkness, 'z' is maxbright.
 //
