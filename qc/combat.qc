@@ -82,6 +82,7 @@ void(entity targ, entity attacker) Killed =
 	ClientObituary(self, attacker);
 	
 	self.takedamage = DAMAGE_NO;
+	self.ghost = TRUE;
 	self.touch = SUB_Null;
 
 	monster_death_use();

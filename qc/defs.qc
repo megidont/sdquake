@@ -693,3 +693,4 @@ float(entity targ, entity inflictor) CanDamage;
 .entity bubble;
 
 void() updatebubble;
+.float ghost;

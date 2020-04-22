@@ -536,6 +536,23 @@ void() PutClientInServer =
 
 	self.view_ofs = '0 0 22';
 
+	local entity list;
+	list = findradius('0 0 0', 1073741824);
+	while(list){
+
+		if(list.ghost == TRUE){
+			local entity ghost;
+			local entity temp;
+
+			ghost = list;
+
+			remove(ghost);
+		}
+
+		list = list.chain;
+
+	}
+
 	self.velocity = '0 0 0';	// 1998-07-21 Player moves after respawn fix by Xian
 
 	player_stand1 ();
