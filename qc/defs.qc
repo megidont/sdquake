@@ -692,3 +692,4 @@ float(entity targ, entity inflictor) CanDamage;
 
 void() updatebubble;
 .float ghost;
+.float isplayer;

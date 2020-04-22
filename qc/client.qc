@@ -487,6 +487,7 @@ void() PutClientInServer =
 
 	spot = SelectSpawnPoint ();
 
+	self.isplayer = TRUE;
 	self.classname = "player";
 	self.health = 100;
 	self.takedamage = DAMAGE_AIM;
@@ -1230,8 +1231,9 @@ void(entity targ, entity attacker) ClientObituary =
 	local	string deathstring, deathstring2;
 	rnum = random();
 
-	if (targ.classname == "player")
+	if (targ.classname == "player" || targ.isplayer == TRUE)
 	{
+
 		if (attacker.classname == "teledeath")
 		{
 			bprint (targ.netname);
@@ -1357,10 +1359,11 @@ void(entity targ, entity attacker) ClientObituary =
 			targ.frags = targ.frags - 1;
 			bprint (targ.netname);
 
-			if(attacker.classname == "socialdistance"){
-				bprint(" failed to practice social distancing");
+			if(attacker.classname == "bubble"){
+				bprint(" failed to practice social distancing\n");
 				return;
 			}
+
 
 			// killed by a montser?
 			if (attacker.flags & FL_MONSTER)
