@@ -152,7 +152,6 @@ void()	demon1_die9		=[	$death9,		demon1_die9 ] {};
 
 void() demon_die =
 {
-	removebubble();
 // check for gib
 	if (self.health < -80)
 	{
@@ -202,7 +201,6 @@ void() monster_demon1 =
 	setmodel (self, "progs/demon.mdl");
 
 	setsize (self, VEC_HULL2_MIN, VEC_HULL2_MAX);
-	makebubble();
 	self.health = 300;
 
 	self.th_stand = demon1_stand1;

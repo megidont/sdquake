@@ -508,8 +508,6 @@ void() PutClientInServer =
 	
 	W_SetCurrentAmmo ();
 
-	makebubble();
-
 	self.attack_finished = time;
 	self.th_pain = player_pain;
 	self.th_die = PlayerDie;
@@ -938,10 +936,6 @@ void() PlayerPreThink =
 
 	if (self.view_ofs == '0 0 0')
 		return;		// intermission or finale
-
-	if(self.bubble.classname != "socialdistance"){
-		makebubble();
-	}
 
 	updatebubble();
 

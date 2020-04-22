@@ -83,6 +83,7 @@ local entity	etemp;
 	
 	self.takedamage = DAMAGE_AIM;
 
+
 	self.ideal_yaw = self.angles * '0 1 0';
 	if (!self.yaw_speed)
 		self.yaw_speed = 20;
@@ -123,7 +124,11 @@ void() walkmonster_start =
 {
 // delay drop to floor to make sure all doors have been spawned
 // spread think times so they don't all happen at same time
-	self.nextthink = self.nextthink + random()*0.5;
+	if(self.classname == "monster_zombie"){
+		self.nextthink = self.nextthink + 5 + random()*0.5;
+	}else{
+		self.nextthink = self.nextthink + random()*0.5;
+	}
 	self.think = walkmonster_start_go;
 	total_monsters = total_monsters + 1;
 };

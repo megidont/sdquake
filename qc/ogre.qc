@@ -384,7 +384,6 @@ void()	ogre_bdie10	=[	$bdeath10,	ogre_bdie10	] {};
 
 void() ogre_die =
 {
-	removebubble();
 // check for gib
 	if (self.health < -80)
 	{
@@ -442,7 +441,6 @@ void() monster_ogre =
 	setmodel (self, "progs/ogre.mdl");
 
 	setsize (self, VEC_HULL2_MIN, VEC_HULL2_MAX);
-	makebubble();
 	self.health = 200;
 
 	self.th_stand = ogre_stand1;

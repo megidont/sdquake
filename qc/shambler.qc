@@ -305,7 +305,6 @@ void() sham_death11     =[      $death11,      sham_death11    ] {};
 
 void() sham_die =
 {
-	removebubble();
 // check for gib
 	if (self.health < -60)
 	{
@@ -355,7 +354,6 @@ void() monster_shambler =
 	setmodel (self, "progs/shambler.mdl");
 
 	setsize (self, VEC_HULL2_MIN, VEC_HULL2_MAX);
-	makebubble();
 	self.health = 600;
 
 	self.th_stand = sham_stand1;

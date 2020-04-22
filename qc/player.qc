@@ -533,8 +533,6 @@ void() PlayerDie =
 {
 	local	float	i;
 
-	removebubble();
-
 //	self.items = self.items - (self.items & IT_INVISIBILITY);
 	self.items = self.items - (self.items &
 	(IT_INVISIBILITY | IT_INVULNERABILITY | IT_SUIT | IT_QUAD) );

@@ -220,7 +220,6 @@ void()	army_cdie11	=[	$deathc11,	army_cdie11	] {};
 
 void() army_die =
 {
-	removebubble();
 // check for gib
 	if (self.health < -35)
 	{
@@ -273,7 +272,6 @@ void() monster_army =
 	setmodel (self, "progs/soldier.mdl");
 
 	setsize (self, '-16 -16 -24', '16 16 40');
-	makebubble();
 	self.health = 30;
 
 	self.th_stand = army_stand1;

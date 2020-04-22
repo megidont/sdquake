@@ -340,7 +340,6 @@ void()	wiz_death8	=[	$death8,		wiz_death8	] {};
 
 void() wiz_die =
 {
-	removebubble();
 // check for gib
 	if (self.health < -40)
 	{
@@ -399,7 +398,6 @@ void() monster_wizard =
 	setmodel (self, "progs/wizard.mdl");
 
 	setsize (self, '-16 -16 -24', '16 16 40');
-	makebubble();
 	self.health = 80;
 
 	self.th_stand = wiz_stand1;

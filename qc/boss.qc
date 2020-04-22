@@ -189,7 +189,6 @@ void() boss_death10 = [$death9, boss_death10]
 	killed_monsters = killed_monsters + 1;
 	WriteByte (MSG_ALL, SVC_KILLEDMONSTER);	// FIXME: reliable broadcast
 	SUB_UseTargets ();
-	removebubble();
 	remove (self);
 };
 
@@ -281,8 +280,6 @@ void() monster_boss =
 	precache_sound ("boss1/death.wav");
 
 	total_monsters = total_monsters + 1;
-
-	makebubble();
 
 	self.use = boss_awake;
 };

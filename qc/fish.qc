@@ -110,7 +110,6 @@ void() f_attack18       =[      $attack18,      f_run1    ] {ai_charge(10);};
 
 void() f_death1 =[      $death1,        f_death2        ] {
 sound (self, CHAN_VOICE, "fish/death.wav", 1, ATTN_NORM);
-removebubble();
 };
 void() f_death2 =[      $death2,        f_death3        ] {};
 void() f_death3 =[      $death3,        f_death4        ] {};
@@ -173,7 +172,6 @@ void() monster_fish =
 	setmodel (self, "progs/fish.mdl");
 
 	setsize (self, '-16 -16 -24', '16 16 24');
-	makebubble();
 	self.health = 25;
 	
 	self.th_stand = f_stand1;
